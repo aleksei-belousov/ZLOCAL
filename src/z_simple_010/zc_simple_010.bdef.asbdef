@@ -1,0 +1,14 @@
+projection;
+strict ( 1 );
+
+use side effects;
+
+define behavior for ZC_SIMPLE_010 alias Simple
+{
+  use create;
+  use update;
+  use delete;
+
+  use action test;
+  use action test2;
+}

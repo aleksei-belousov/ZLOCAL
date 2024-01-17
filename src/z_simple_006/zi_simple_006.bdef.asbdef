@@ -1,0 +1,15 @@
+managed implementation in class zbp_i_simple_006 unique;
+strict ( 1 );
+
+define behavior for ZI_SIMPLE_006 //alias <alias_name>
+persistent table zsimple_006
+with additional save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( numbering : managed, readonly ) Uuid;
+  create;
+  update;
+  delete;
+}

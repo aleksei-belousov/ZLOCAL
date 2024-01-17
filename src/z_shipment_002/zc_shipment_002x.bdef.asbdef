@@ -1,0 +1,9 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_SHIPMENT_002X alias ShipmentX
+{
+  use create;
+  use update;
+  use delete;
+}

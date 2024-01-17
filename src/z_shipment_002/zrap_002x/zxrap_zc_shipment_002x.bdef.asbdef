@@ -1,0 +1,7 @@
+ implementation abstract;
+ define behavior for ZXRAP_ZC_SHIPMENT_002X
+  {
+  create;
+ update;
+ delete;
+ }

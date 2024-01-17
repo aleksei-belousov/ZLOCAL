@@ -1,0 +1,38 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Item 006X',
+                typeNamePlural: 'Item 006X',
+                title: { type: #STANDARD, value: 'Id' } } }
+annotate view ZC_ITEM_006X with
+{
+
+  @UI.facet: [  { id:            'Item',
+                  purpose:       #STANDARD,
+                  type:          #IDENTIFICATION_REFERENCE,
+                  label:         'Item',
+                  position:      10 } ]
+
+  @UI: {  identification: [ { position: 10, label: 'Item UUID' } ] }
+  Uuid;
+
+  @UI: {  lineItem:       [ { position: 20, label: 'Item ID' } ],
+          identification: [ { position: 20, label: 'Item ID' } ] }
+  Id;
+
+  @UI: {  lineItem:       [ { position: 30, label: 'Simple UUID' } ],
+          identification: [ { position: 30, label: 'Simple UUID' } ] }
+  Simpleuuid;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'Simple ID' } ],
+          identification: [ { position: 40, label: 'Simple ID' } ] }
+  Simpleid;
+
+  @UI: {  lineItem:       [ { position: 50, label: 'Data 4' } ],
+          identification: [ { position: 50, label: 'Data 4' } ] }
+  Data4;
+
+  @UI: {  lineItem:       [ { position: 60, label: 'Data 5' } ],
+          identification: [ { position: 60, label: 'Data 5' } ] }
+  Data5;
+
+}

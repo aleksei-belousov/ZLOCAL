@@ -1,0 +1,4 @@
+define service ZUI_ZSIMPLE010 {
+  expose ZC_ZSIMPLE010_S as Zsimple010All;
+  expose ZC_ZSIMPLE010 as Zsimple010;
+}

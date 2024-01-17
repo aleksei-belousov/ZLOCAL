@@ -1,0 +1,8 @@
+ implementation abstract;
+ define behavior for ZRAP_003ZC_ITEM_005
+// late numbering
+  etag master ETAG__ETAG
+ {
+  update;
+ delete;
+ }

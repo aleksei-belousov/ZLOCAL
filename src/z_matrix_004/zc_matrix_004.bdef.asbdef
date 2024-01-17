@@ -1,0 +1,35 @@
+projection;
+strict ( 1 );
+
+use side effects;
+
+define behavior for ZC_MATRIX_004 alias Matrix
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Size {}
+  use association _Item { create; }
+
+  use action create_items;
+  use action create_sales_order;
+  use action get_sales_order;
+
+}
+
+define behavior for ZC_SIZE_004 alias Size
+{
+  use update;
+  //use delete;
+
+  use association _Matrix;
+}
+
+define behavior for ZC_ITEM_004 alias Item
+{
+  use update;
+  use delete;
+
+  use association _Matrix;
+}

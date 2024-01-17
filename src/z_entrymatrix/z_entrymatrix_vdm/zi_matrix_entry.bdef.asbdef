@@ -1,0 +1,101 @@
+managed implementation in class zbp_i_matrix_entry unique;
+//strict ( 1 );
+
+define behavior for ZI_MATRIX_ENTRY alias Matrix
+//persistent table zmatrixentry
+//with additional save with full data
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  association _Table { create; }
+  association _Size { create; }
+
+//  field ( numbering : managed, readonly ) order_Uuid;
+
+
+  mapping for zmatrixentry
+  {
+//  Order_Uuid = order_uuid;
+  Order_Id = order_id;
+  Modelno = modelno;
+  Colorno = colorno;
+  }
+
+  action create_items;
+  action adjust_size;
+  action create_sales_order;
+
+}
+
+
+define behavior for ZI_MATRIX_SIZE alias Size
+persistent table zmatrix_size
+//with additional save
+lock dependent by _Entry
+authorization dependent by _Entry
+//etag master <field_name>
+{
+    update;
+    //delete;
+    field ( readonly ) OrderUuid;
+    association _Entry;
+    field (numbering : managed, readonly ) Sizeuuid;
+    field ( readonly ) Back;
+
+    mapping for zmatrix_size
+  {
+    SizeUUID    = sizeuuid;
+    Back        = back;
+    OrderUuid   = order_uuid;
+    A           = a;
+    B           = b;
+    C           = c;
+    D           = d;
+    E           = e;
+    F           = f;
+    G           = g;
+    H           = h;
+    I           = i;
+  }
+
+}
+
+
+
+define behavior for ZI_MATRIX_TABLE alias Table
+persistent table zmatrix_as
+//with additional save
+lock dependent by _Entry
+authorization dependent by _Entry
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( numbering : managed, readonly ) MatrixUuid;
+  field ( readonly ) OrderUuid;
+
+
+  association _Entry;
+
+
+  mapping for zmatrix_as
+  {
+  MatrixUuid    = matrix_uuid;
+  Matrix_Id     = matrix_id;
+  OrderUuid     = order_uuid;
+  Order_Id      = order_id;
+  ModelNo       = modelno;
+  ColorNo       = colorno;
+  Cupsize       = cupsize;
+  Backsize      = backsize;
+  Product       = product;
+  Quantity      = quantity;
+  }
+
+}

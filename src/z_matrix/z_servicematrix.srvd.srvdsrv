@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for online shop'
+define service Z_SERVICEMATRIX {
+  expose ZMATRIX_VIEW as Online_Matrix;
+}

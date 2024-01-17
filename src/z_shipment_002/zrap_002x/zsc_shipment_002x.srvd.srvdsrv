@@ -1,0 +1,5 @@
+@EndUserText.label: 'ZSC_SHIPMENT_002X'
+@OData.schema.name: 'cds_zsd_shipment_002x'
+define service ZSC_SHIPMENT_002X {
+ expose ZXRAP_ZC_SHIPMENT_002X; 
+ } 

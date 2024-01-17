@@ -1,0 +1,4 @@
+@EndUserText.label: 'ZSD_INVOICE_TABLE'
+define service ZSD_INVOICE_TABLE {
+  expose ZC_INVOICE_TABLE;
+}

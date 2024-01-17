@@ -1,0 +1,104 @@
+managed;
+strict ( 2 );
+with draft;
+define behavior for ZI_SIMPLE_011 alias Simple
+implementation in class zbp_i_simple_011 unique
+persistent table zsimple_011
+draft table zsimple_011d
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  // Actions:
+  action create_item;
+  action update_items;
+
+  // Events:
+  determination event_on_modify on modify { field Data1, Data2; }
+  determination event_on_save on save { field Data1, Data2; }
+
+  association _Item { create ( features : instance, authorization : update ); with draft; }
+
+  field ( numbering : managed, readonly ) SimpleUUID;
+//  field ( readonly ) SimpleID;
+
+  draft action Resume with additional implementation;
+  draft action Edit /*with additional implementation*/;
+  draft action Activate /*with additional implementation*/ optimized;
+  draft action Discard /*with additional implementation*/;
+  draft determine action Prepare
+  {
+    //validation validateData1;
+  }
+
+  mapping for ZSIMPLE_011
+  {
+    SimpleUUID          = simpleuuid;
+    SimpleID            = simpleid;
+    Data1               = data1;
+    Data2               = data2;
+    Data3               = data3;
+    CreatedBy           = createdby;
+    CreatedAt           = createdat;
+    LastChangedAt       = lastchangedat;
+    LastChangedBy       = lastchangedby;
+    LocalLastChangedAt  = locallastchangedat;
+  }
+
+  side effects
+  {
+    field Data1 affects field Data3;
+    field Data2 affects field Data3;
+//    field Data3 affects entity _Item;
+    action create_item affects entity _Item;
+    action update_items affects entity _Item, field Data3;
+  }
+}
+
+define behavior for ZI_ITEM_011 alias Item
+//implementation in class zbp_i_item_011 unique
+persistent table zitem_011
+draft table zitem_011d
+lock dependent by _Simple
+authorization dependent by _Simple
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+
+  // Events:
+//  determination event_on_modify on modify { field Data4; }
+
+  association _Simple { with draft; }
+
+  field ( numbering : managed, readonly ) ItemUUID;
+//  field ( readonly ) ItemID;
+  field ( readonly ) SimpleUUID;
+//  field ( readonly ) Data4;
+//  field ( readonly ) Data5;
+//  field ( readonly ) Data6;
+  field ( readonly ) LocalLastChangedAt;
+
+  mapping for zitem_011
+  {
+    ItemUUID              = itemuuid;
+    ItemID                = itemid;
+    SimpleUUID            = simpleuuid;
+    Data4                 = data4;
+    Data5                 = data5;
+    Data6                 = data6;
+    LocalLastChangedAt    = locallastchangedat;
+  }
+
+//  side effects
+//  {
+//    field Data4 affects field Data6;
+//    field Data5 affects field Data6;
+//  }
+
+}

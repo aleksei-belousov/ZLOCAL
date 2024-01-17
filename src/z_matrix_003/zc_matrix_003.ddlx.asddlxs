@@ -1,0 +1,152 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Matix',
+                typeNamePlural: 'Matrix',
+                title: { type: #STANDARD, label: 'Matrix', value: 'MatrixID' } },
+  presentationVariant: [{ sortOrder: [{ by: 'MatrixID', direction: #ASC }] }] }
+
+annotate view ZC_MATRIX_003 with 
+{
+//  @UI.facet: [  { id:              'Matrix',
+//                  purpose:         #STANDARD,
+//                  type:            #IDENTIFICATION_REFERENCE,
+//                  label:           'Matrix',
+//                  position:        10 },
+//                { id:              'Item',
+//                  purpose:         #STANDARD,
+//                  type:            #LINEITEM_REFERENCE,
+//                  label:           'Item',
+//                  position:        20,
+//                  targetElement:   '_Item'} ]
+
+  @UI.facet: [
+
+      // Main facet - Main
+      {
+          id:               'Main',
+          purpose:          #STANDARD,
+          type:             #COLLECTION,
+          label:            'Matrix',
+          position:         10
+      },
+      // Fieldgroup 1 ( Header )
+      {
+          id:               'Fieldgroup1',
+          type:             #FIELDGROUP_REFERENCE,
+          label:            'Matrix :',
+          parentId:         'Main',
+          targetQualifier:  'Fieldgroup1',
+          position:         10
+      },
+      // Fieldgroup 2 ( Matrix )
+      {
+          id:               'Fieldgroup2',
+          type:             #FIELDGROUP_REFERENCE,
+          label:            'Size :',
+          parentId:         'Main',
+          targetQualifier:  'Fieldgroup2',
+          position:         20
+      },
+      // Size Table
+      {
+          id:               'Size',
+          purpose:          #STANDARD,
+          type:             #LINEITEM_REFERENCE,
+          label:            'Size',
+          targetQualifier:  'Size',
+          position:         30,
+          targetElement:    '_Size'
+      },
+      // Item Table
+      {
+          id:               'Item',
+          purpose:          #STANDARD,
+          type:             #LINEITEM_REFERENCE,
+          label:            'Item',
+          targetQualifier:  'Item',
+          position:         40,
+          targetElement:    '_Item'
+      }
+  ]
+
+  // Header fields:
+  
+  //@UI: {  lineItem:       [ { position: 10,  label: 'Matrix UUID' } ],
+  //        identification: [ { position: 10,  label: 'Matrix UUID' } ],
+  //        fieldGroup:     [ { qualifier: 'Fieldgroup1', position: 10, label: 'Matrix UUID' } ] }
+  //MatrixUUID;
+
+  @UI: {  lineItem:       [ { position: 20, label: 'Matrix ID', cssDefault.width: '300px' } ],
+          identification: [ { position: 20, label: 'Matrix ID', cssDefault.width: '300px' },
+                            { type: #FOR_ACTION, dataAction: 'create_items',        label: 'Create Items' },
+                            { type: #FOR_ACTION, dataAction: 'create_sales_order',  label: 'Create Sales Order' } ],
+          fieldGroup:     [ { qualifier: 'Fieldgroup1', position: 20, label: 'Matrix ID', cssDefault.width: '300px' } ],
+          selectionField: [ { position: 20 } ] }
+  MatrixID;
+  
+  @UI: {  lineItem:       [ { position: 30, label: 'Model', cssDefault.width: '300px' } ],
+          identification: [ { position: 30, label: 'Model', cssDefault.width: '300px' } ],
+          fieldGroup:     [ { qualifier: 'Fieldgroup1', position: 30, label: 'Model', cssDefault.width: '300px' } ],
+          selectionField: [ { position: 30 } ] }
+  Model;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'Color', cssDefault.width: '300px' } ],
+          identification: [ { position: 40, label: 'Color', cssDefault.width: '300px' } ],
+          fieldGroup:     [ { qualifier: 'Fieldgroup1', position: 40, label: 'Color', cssDefault.width: '300px' } ],
+          selectionField: [ { position: 40 } ] }
+  Color;
+
+//  @UI: {  lineItem:       [ { position: 50, label: 'Product' } ],
+//          identification: [ { position: 50, label: 'Product' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup1', position: 50, label: 'Product' } ],
+//          selectionField: [ { position: 50 } ] }
+//  Product;
+ 
+  // Matrix fields:
+  
+//  @UI: {  lineItem:       [ { position: 60, label: 'A-65' } ],
+//          identification: [ { position: 60, label: 'A-65' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup2', position: 60, label: 'A-65' } ] }
+//  A65;
+//
+//  @UI: {  lineItem:       [ { position: 70, label: 'A-70' } ],
+//          identification: [ { position: 70, label: 'A-70' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup2', position: 70, label: 'A-70' } ] }
+//  A70;
+//
+//  @UI: {  lineItem:       [ { position: 80, label: 'A-75' } ],
+//          identification: [ { position: 80, label: 'A-75' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup2', position: 80, label: 'A-75' } ] }
+//  A75;
+//
+//  @UI: {  lineItem:       [ { position: 90, label: 'B-65' } ],
+//          identification: [ { position: 90, label: 'B-65' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup2', position: 90, label: 'B-65' } ] }
+//  B65;
+//
+//  @UI: {  lineItem:       [ { position: 100, label: 'B-70' } ],
+//          identification: [ { position: 100, label: 'B-70' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup2', position: 100, label: 'B-70' } ] }
+//  B70;
+//
+//  @UI: {  lineItem:       [ { position: 110, label: 'B-75' } ],
+//          identification: [ { position: 110, label: 'B-75' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup2', position: 110, label: 'B-75' } ] }
+//  B75;
+//
+//  @UI: {  lineItem:       [ { position: 120, label: 'C-65' } ],
+//          identification: [ { position: 120, label: 'C-65' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup2', position: 120, label: 'C-65' } ] }
+//  C65;
+//
+//  @UI: {  lineItem:       [ { position: 130, label: 'C-70' } ],
+//          identification: [ { position: 130, label: 'C-70' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup2', position: 130, label: 'C-70' } ] }
+//  C70;
+//
+//  @UI: {  lineItem:       [ { position: 140, label: 'C-75' } ],
+//          identification: [ { position: 140, label: 'C-75' } ],
+//          fieldGroup:     [ { qualifier: 'Fieldgroup2', position: 140, label: 'C-75' } ] }
+//  C75;
+
+}

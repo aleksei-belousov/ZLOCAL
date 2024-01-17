@@ -1,0 +1,10 @@
+projection implementation in class zbp_c_online_shop_003 unique;
+//strict ( 1 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZC_ONLINE_SHOP_003 alias OnlineShop
+{
+  use create;
+  use update;
+  use delete;
+
+}

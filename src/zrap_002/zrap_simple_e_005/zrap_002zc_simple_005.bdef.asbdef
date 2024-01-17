@@ -1,0 +1,7 @@
+ implementation abstract;
+ define behavior for ZRAP_002ZC_SIMPLE_005
+ {
+  create;
+  update;
+  delete;
+ }

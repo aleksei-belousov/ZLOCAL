@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service definition for matrix entry'
+define service ZSD_MATRIXENTRY {
+  expose ZC_MATRIX_ENTRY as matrix_entry;
+  expose ZC_MATRIX_TABLE as matrix_table;
+  expose ZC_MATRIX_SIZE as matrix_size;
+}

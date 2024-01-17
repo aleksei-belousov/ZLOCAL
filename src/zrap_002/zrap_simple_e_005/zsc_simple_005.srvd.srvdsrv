@@ -1,0 +1,5 @@
+@EndUserText.label: 'ZSC_SIMPLE_005'
+@OData.schema.name: 'cds_zsd_simple_005'
+define service ZSC_SIMPLE_005 {
+ expose ZRAP_002ZC_SIMPLE_005; 
+ } 

@@ -1,0 +1,36 @@
+@Metadata.layer: #CUSTOMER
+@Search.searchable: true
+@UI: { headerInfo: { typeName: 'Simple 004',
+                     typeNamePlural: 'Simple 004s',
+                     title: { type: #STANDARD, label: 'Simple 004', value: 'id' }},
+       presentationVariant: [{ sortOrder: [{ by: 'Id', direction: #DESC }] }] }
+annotate view ZC_SIMPLE_004 with
+{
+
+  @UI.facet: [{ id:       'Simple',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE,
+                label:    'Simple',
+                position: 10 }]
+  Uuid;
+  
+  @UI: { lineItem: [{ position: 10,label: 'Id', importance: #HIGH }],
+         identification: [{ position: 10, label: 'Id' }]
+       }
+  @Search.defaultSearchElement: true
+  Id;
+  
+  @UI: { lineItem: [{ position: 20,label: 'Data', importance: #HIGH }],
+         identification: [{ position: 20, label: 'Data' }]
+       }
+  @Search.defaultSearchElement: true
+  Data;
+  
+  
+  @UI: { lineItem:       [{ position: 30,label: 'Data2', importance: #HIGH }],
+         identification: [{ position: 30, label: 'Data2' }]
+       }
+  @Search.defaultSearchElement: true
+  data2;
+  
+}

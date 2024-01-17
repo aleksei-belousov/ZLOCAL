@@ -1,0 +1,23 @@
+managed implementation in class zbp_matrix_final unique;
+
+define behavior for ZMATRIX_FINAL alias Matrix_Shop
+
+persistent table zmatrix
+with additional save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( numbering : managed ) order_Uuid;
+  field ( mandatory ) Modelnr, Colornr;
+  field ( readonly ) Ordereditem;
+  field ( readonly ) Creationdate; // order_id;
+  determination calculate_order_id on modify { create; }
+  determination Ordereditem on modify { create; }
+  internal action create_so parameter $self;
+  //internal action set_inforecord;
+  //internal action update_inforecord;
+  create;
+  update;
+  delete;
+}

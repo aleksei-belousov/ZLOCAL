@@ -1,0 +1,5 @@
+@EndUserText.label: 'ZSD_PURCHASEORDER'
+define service ZSD_PURCHASEORDER {
+  expose I_PurchaseOrderAPI01;
+  expose I_PurchaseOrderItemAPI01;
+}

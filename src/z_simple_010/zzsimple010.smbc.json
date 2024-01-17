@@ -1,0 +1,35 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Z_SIMPLE_010_BCMO",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_ZSIMPLE010_O4",
+    "serviceName": "ZUI_ZSIMPLE010_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "Zsimple010All",
+    "name": "ZSIMPLE 010",
+    "configurationGroup": "",
+    "skipRootEntity": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "Zsimple010All",
+        "variantManagement": "control",
+        "editableHeaderContent": true
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "Zsimple010",
+        "tableType": "gridTable",
+        "creationModeName": "creationRow",
+        "rowCountMode": "auto"
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'ZSC_PURCHASEORDERITEM'
+@OData.schema.name: 'cds_zsd_purchaseorderitem'
+define service ZSC_PURCHASEORDERITEM {
+ expose ZRAPI_PURCHASEORDERITEMAPI01; 
+ } 

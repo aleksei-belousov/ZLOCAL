@@ -1,0 +1,47 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Simple 006X',
+                typeNamePlural: 'Simple 006X',
+                title: { type: #STANDARD, label: 'Simple 006X', value: 'Id' } },
+  presentationVariant: [{ sortOrder: [{ by: 'Id', direction:  #ASC }] }] }
+
+annotate view ZC_SIMPLE_006X with
+{
+
+  @UI.facet: [  { id:              'Simple',
+                  purpose:         #STANDARD,
+                  type:            #IDENTIFICATION_REFERENCE,
+                  label:           'Simple',
+                  position:        10 },
+                { id:              'Item',
+                  purpose:         #STANDARD,
+                  type:            #LINEITEM_REFERENCE,
+                  label:           'Item',
+                  position:        20,
+                  targetElement:   '_Item'} ]
+
+  @UI: {  lineItem:       [ { position: 10, label: 'Simple UUID' } ],
+          identification: [ { position: 1,  label: 'Simple UUID' } ] }
+  Uuid;
+
+  @UI: {  lineItem:       [ { position: 10, label: 'Simple ID' } ],
+          identification: [ { position: 10, label: 'Simple ID' } ],
+          selectionField: [ { position: 10 } ] }
+  Id;
+
+  @UI: {  lineItem:       [ { position: 20, label: 'Data 1' } ],
+          identification: [ { position: 20, label: 'Data 1' } ],
+          selectionField: [ { position: 20 } ] }
+  Data1;
+
+  @UI: {  lineItem:       [ { position: 30, label: 'Data 2' } ],
+          identification: [ { position: 30, label: 'Data 2' } ],
+          selectionField: [ { position: 30 } ] }
+  Data2;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'Data 3' } ],
+          identification: [ { position: 40, label: 'Data 3' } ],
+          selectionField: [ { position: 40 } ] }
+  Data3;
+
+}

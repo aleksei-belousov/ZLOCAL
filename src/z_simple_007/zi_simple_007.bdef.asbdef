@@ -1,0 +1,21 @@
+unmanaged implementation in class zbp_i_simple_007 unique;
+strict ( 1 );
+define behavior for ZI_SIMPLE_007 alias Simple
+
+late numbering
+lock master
+etag master Id
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Id;
+  mapping for zsimple_007 {
+
+    Id = id;
+    Data0 = data0;
+    Data1 = data1;
+
+  }
+}

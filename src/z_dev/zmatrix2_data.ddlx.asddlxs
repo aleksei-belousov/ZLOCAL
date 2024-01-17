@@ -1,0 +1,26 @@
+@Metadata.layer: #CUSTOMER
+annotate view ZMATRIX2_DATA
+    with 
+{
+  @UI: { identification: [{ position: 0,  label: 'Back' }] }
+    Back;
+  @UI: { identification: [{ position: 10, label: 'A' }] }
+    A;
+  @UI: { identification: [{ position: 20, label: 'B' }] }
+    B;
+  @UI: { identification: [{ position: 30, label: 'C' }] }
+    C;
+  @UI: { identification: [{ position: 40, label: 'D' }] }
+    D;
+  @UI: { identification: [{ position: 60, label: 'E' }] }
+    E;
+  @UI: { identification: [{ position: 70, label: 'F' }] }
+    F;
+  @UI: { identification: [{ position: 80, label: 'G' }] }
+    g;
+  @UI: { identification: [{ position: 80, label: 'H' }] }
+    H;
+  @UI: { identification: [{ position: 90, label: 'I' }] }
+    I;   
+    
+}

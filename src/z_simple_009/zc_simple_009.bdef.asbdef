@@ -1,0 +1,29 @@
+projection;
+strict ( 1 );
+
+use side effects;
+
+define behavior for ZC_SIMPLE_009 alias Simple
+{
+  use create;
+  use update;
+  use delete;
+
+  use action test1;
+  use action test2;
+  use action create_items;
+  use action calc_on_action;
+
+  use association _Item { create; }
+}
+
+define behavior for ZC_ITEM_009 alias Item
+{
+  use update;
+  use delete;
+
+  use action test3;
+  use action test4;
+
+  use association _Simple;
+}

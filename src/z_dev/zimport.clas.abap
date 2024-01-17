@@ -1,0 +1,19 @@
+CLASS zimport DEFINITION PUBLIC FINAL CREATE PUBLIC.
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS ZIMPORT IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+        DATA lo_class TYPE REF TO CL_ABAP_C_READER.
+        DATA lv_other TYPE C.
+
+  ENDMETHOD. " if_oo_adt_classrun~main
+ENDCLASS.

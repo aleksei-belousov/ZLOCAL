@@ -1,0 +1,4 @@
+@EndUserText.label: 'ZSD_SIMPLE_006'
+define service ZSD_SIMPLE_006 {
+  expose ZC_SIMPLE_006;
+}

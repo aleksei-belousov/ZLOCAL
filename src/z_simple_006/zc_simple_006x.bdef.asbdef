@@ -1,0 +1,19 @@
+projection;
+strict ( 1 );
+
+define behavior for ZC_SIMPLE_006X alias Simple
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Item { create; }
+}
+
+define behavior for ZC_ITEM_006X alias Item
+{
+  use update;
+  use delete;
+
+  use association _Simple;
+}

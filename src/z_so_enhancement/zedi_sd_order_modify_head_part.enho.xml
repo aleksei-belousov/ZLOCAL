@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_ENHO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOOL>BADI_IMPL</TOOL>
+   <SHORTTEXT>ZEDI_SD_ORDER_MODIFY_HEAD_PART</SHORTTEXT>
+   <SPOT_NAME>ES_EDI_SD_ORDER_EXTEND</SPOT_NAME>
+   <IMPL>
+    <ENH_BADI_IMPL_DATA>
+     <SPOT_NAME>ES_EDI_SD_ORDER_EXTEND</SPOT_NAME>
+     <BADI_NAME>EDI_SD_ORDER_MODIFY_HEAD_PARTY</BADI_NAME>
+     <IMPL_NAME>ZEDI_SD_ORDER_MODIFY_HEAD_PART</IMPL_NAME>
+     <IMPL_CLASS>ZCL_EDI_SD_ORDER_MODIFY_HDR_PT</IMPL_CLASS>
+     <ACTIVE>X</ACTIVE>
+     <IS_DEFAULT>X</IS_DEFAULT>
+     <IMPL_SHORTTEXT>ZEDI_SD_ORDER_MODIFY_HEAD_PARTY</IMPL_SHORTTEXT>
+     <LOCKED_IN_CUSTOMIZING>X</LOCKED_IN_CUSTOMIZING>
+    </ENH_BADI_IMPL_DATA>
+   </IMPL>
+  </asx:values>
+ </asx:abap>
+</abapGit>

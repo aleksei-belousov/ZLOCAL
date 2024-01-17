@@ -1,0 +1,51 @@
+@Metadata.layer: #CUSTOMER
+@Search.searchable: true
+@UI: { headerInfo: { typeName: 'Item 006',
+                     typeNamePlural: 'Item 006',
+                     title: { type: #STANDARD, label: 'Item 006', value: 'id' }},
+       presentationVariant: [{ sortOrder: [{ by: 'Id', direction: #ASC }] }] }
+annotate view ZC_ITEM_006 with 
+{
+  @UI.facet: [{ id:       'Item006',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE,
+                label:    'Item 006',
+                position: 10 }]
+
+  @UI: { lineItem:          [{ position: 10, label: 'Item UUID', importance: #HIGH }],
+         identification:    [{ position: 10, label: 'Item UUID' }]
+       }
+  @Search.defaultSearchElement: true
+  Uuid;
+
+  @UI: { lineItem:          [{ position: 20, label: 'Item Id', importance: #HIGH }],
+         identification:    [{ position: 20, label: 'Item Id' }]
+       }
+  @Search.defaultSearchElement: true
+  Id;
+
+  @UI: { lineItem:          [{ position: 30, label: 'Simple UUID', importance: #HIGH }],
+         identification:    [{ position: 30, label: 'Simple UUID' }]
+       }
+  @Search.defaultSearchElement: true
+  Simpleuuid;
+
+  @UI: { lineItem:          [{ position: 40, label: 'Simple Id', importance: #HIGH }],
+         identification:    [{ position: 40, label: 'Simple Id' }]
+       }
+  @Search.defaultSearchElement: true
+  Simpleid;
+
+  @UI: { lineItem:          [{ position: 50, label: 'Data 4', importance: #HIGH }],
+         identification:    [{ position: 50, label: 'Data 4' }]
+       }
+  @Search.defaultSearchElement: true
+  Data4;
+
+  @UI: { lineItem:          [{ position: 60, label: 'Data 5', importance: #HIGH }],
+         identification:    [{ position: 60, label: 'Data 5' }]
+       }
+  @Search.defaultSearchElement: true
+  Data5;
+    
+}

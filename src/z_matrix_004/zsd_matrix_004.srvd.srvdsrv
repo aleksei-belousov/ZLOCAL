@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZSD_MATRIX_004'
+define service ZSD_MATRIX_004 {
+  expose ZC_MATRIX_004;
+  expose ZC_SIZE_004;
+  expose ZC_ITEM_004;
+}

@@ -1,0 +1,115 @@
+managed implementation in class zbp_i_matrix_004 unique;
+strict ( 1 );
+
+define behavior for ZI_MATRIX_004 alias Matrix
+//persistent table zmatrix_004
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  association _Item { create; }
+  association _Size { create; }
+
+  field ( numbering : managed,readonly ) MatrixUUID;
+//  field ( mandatory :create, readonly : update ) MatrixID;
+  field ( readonly : update ) MatrixID;
+  field ( readonly : update ) SalesOrderID;
+
+  mapping for zmatrix_004
+  {
+    MatrixUUID              = matrixuuid;
+    MatrixID                = matrixid;
+    DistributionChannel     = distributionchannel;
+    OrganizationDivision    = organizationdivision;
+    SalesOrderType          = salesordertype;
+    SalesOrganization       = salesorganization;
+    SoldToParty             = soldtoparty;
+    Model                   = model;
+    Color                   = color;
+    CreationDate            = creationdate;
+    CreationTime            = creationtime;
+    SalesOrderID            = salesorderid;
+  }
+
+  // Actions:
+  // Create Items
+  action create_items;
+  // Create Sales Order
+  action create_sales_order;
+  // Get Sales Order
+  action get_sales_order;
+
+  // Events:
+  // After Modify
+  determination after_modify on modify { field CreationDate, CreationTime; }
+
+  side effects
+  {
+    action create_items affects entity _Item;
+  }
+
+}
+
+define behavior for ZI_SIZE_004 alias Size
+//persistent table zsize_004
+with unmanaged save
+lock dependent by _Matrix
+authorization dependent by _Matrix
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) MatrixUUID;
+  field ( readonly ) SizeID;
+  field ( readonly ) Back;
+  association _Matrix;
+
+  mapping for zsize_004
+  {
+    MatrixUUID  = matrixuuid;
+    SizeID      = sizeid;
+    Back        = back;
+    A           = a;
+    B           = b;
+    C           = c;
+    D           = d;
+    E           = e;
+    F           = f;
+    G           = g;
+    H           = h;
+    I           = i;
+  }
+
+}
+
+define behavior for ZI_ITEM_004 alias Item
+persistent table zitem_004
+with additional save
+lock dependent by _Matrix
+authorization dependent by _Matrix
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) MatrixUUID;
+  field ( readonly ) ItemID;
+  association _Matrix;
+
+  mapping for zitem_004
+  {
+    MatrixUUID      = matrixuuid;
+    ItemID          = itemid;
+    Model           = model;
+    Color           = color;
+    Cupsize         = cupsize;
+    Backsize        = backsize;
+    Product         = product;
+    Quantity        = quantity;
+  }
+
+}

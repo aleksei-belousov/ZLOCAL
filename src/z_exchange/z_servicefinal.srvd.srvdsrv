@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definiton for ZFinal'
+define service Z_SERVICEFINAL {
+  expose zdef_final as exchange;
+}

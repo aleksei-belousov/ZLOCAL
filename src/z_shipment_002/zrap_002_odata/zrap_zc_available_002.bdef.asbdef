@@ -1,0 +1,6 @@
+ implementation abstract;
+ define behavior for ZRAP_ZC_AVAILABLE_002
+  {
+  update;
+ delete;
+ }

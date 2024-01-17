@@ -1,0 +1,17 @@
+managed implementation in class zbp_matrix2_data unique;
+
+define behavior for ZMATRIX2_DATA alias Matrix_Shop
+
+persistent table zmatrix2
+with additional save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  determination calculate_order_id on modify { create; }
+  determination Ordereditem on modify { create; }
+  internal action create_so parameter $self;
+  create;
+  update;
+  delete;
+}

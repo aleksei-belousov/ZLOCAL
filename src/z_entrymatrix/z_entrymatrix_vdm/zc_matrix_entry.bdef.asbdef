@@ -1,0 +1,33 @@
+projection;
+//strict ( 1 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZC_MATRIX_ENTRY alias Entry
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Size {}
+  use association _Table { create; }
+  use action adjust_size;
+  use action create_items;
+  use action create_sales_order;
+
+}
+
+define behavior for ZC_MATRIX_SIZE alias Size
+{
+  use update;
+//  use delete;
+
+  use association _Entry;
+
+}
+
+define behavior for ZC_MATRIX_TABLE alias Table
+{
+  use update;
+  use delete;
+
+  use association _Entry;
+}

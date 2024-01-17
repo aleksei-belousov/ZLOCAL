@@ -1,0 +1,30 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: { headerInfo: { typeName: 'Simple 007M',
+                     typeNamePlural: 'Simple 007M',
+                     title: { type: #STANDARD, label: 'Simple 007M', value: 'Id' }},
+       presentationVariant: [{ sortOrder: [{ by: 'Id', direction: #ASC }] }] }
+annotate view ZC_SIMPLE_007M with 
+{
+    @UI.facet: [{ id: 'Simple007M', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Simple 007M', position: 10 }]
+    
+    @UI: {
+        lineItem:      [{ position: 30, label: 'ID' }],
+        identification:[{ position: 30, label: 'ID' }]
+    }
+    @Search.defaultSearchElement: true
+    Id;
+
+    @UI: {
+        lineItem:      [{ position: 40, label: 'Data 0' }],
+        identification:[{ position: 40, label: 'Data 0' }]
+    }
+    Data0;
+
+    @UI: {
+        lineItem:      [{ position: 50, label: 'Data 1' }],
+        identification:[{ position: 50, label: 'Data 1' }]
+    }
+    Data1;
+
+}

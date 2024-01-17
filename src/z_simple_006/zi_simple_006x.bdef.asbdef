@@ -1,0 +1,49 @@
+managed implementation in class zbp_i_simple_006x unique;
+strict ( 1 );
+
+define behavior for ZI_SIMPLE_006X alias Simple
+persistent table zsimple_006
+with additional save
+lock master
+authorization master ( instance )
+//etag master Data1
+{
+  create;
+  update;
+  delete;
+  association _Item { create; }
+  field ( numbering : managed, readonly ) Uuid;
+  mapping for zsimple_006
+  {
+    Uuid        = uuid;
+    Id          = id;
+    Data1       = data1;
+    Data2       = data2;
+    Data3       = data3;
+  }
+}
+
+define behavior for ZI_ITEM_006X alias Item
+persistent table zitem_006
+with additional save
+lock dependent by _Simple
+authorization dependent by _Simple
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( numbering : managed, readonly ) Uuid;
+  field ( readonly ) Simpleuuid;
+
+  association _Simple;
+
+  mapping for zitem_006
+  {
+    Uuid            = uuid;
+    Simpleuuid      = simpleuuid;
+    Id              = id;
+    Simpleid        = simpleid;
+    Data4           = data4;
+    Data5           = data5;
+  }
+}

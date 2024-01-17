@@ -1,0 +1,80 @@
+managed implementation in class zbp_i_simple_009 unique;
+strict ( 1 );
+
+define behavior for ZI_SIMPLE_009 alias Simple
+persistent table zsimple_009
+with additional save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( numbering : managed, readonly ) HeaderUUID;
+
+  create;
+  update;
+  delete;
+
+  mapping for zsimple_009
+  {
+    HeaderUUID  = header_uuid;
+    HeaderID    = header_id;
+    Data1       = data1;
+    Data2       = data2;
+    Data3       = data3;
+    Customer    = customer;
+  }
+
+  side effects
+  {
+    field Data1 affects field Data3;
+    field Data2 affects field Data3;
+  }
+
+  // Actions:
+  action test1;
+  action test2;
+  action create_items;
+  action calc_on_action;
+  // Events:
+  determination calc_on_modify on modify { field Data1, Data2; }
+
+  association _Item { create; }
+}
+
+define behavior for ZI_ITEM_009 alias Item
+persistent table zitem_009
+with additional save
+lock dependent by _Simple
+authorization dependent by _Simple
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) ItemUUID;
+  field ( readonly ) HeaderUUID;
+
+  mapping for zitem_009
+  {
+    ItemUUID    = item_uuid;
+    ItemID      = item_id;
+    HeaderUUID  = header_uuid;
+    Data4       = data4;
+    Data5       = data5;
+    Data6       = data6;
+  }
+
+  side effects
+  {
+    field Data4 affects field Data6;
+    field Data5 affects field Data6;
+  }
+
+  // Actions:
+  action test3;
+  action test4;
+  // Events:
+  determination calc_on_modify on modify { field Data4, Data5; }
+
+  association _Simple;
+}

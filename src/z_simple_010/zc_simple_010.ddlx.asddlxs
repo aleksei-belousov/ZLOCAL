@@ -1,0 +1,53 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: { headerInfo: { typeName: 'Simple',
+                     typeNamePlural: 'Simple',
+                     title: { type: #STANDARD, label: 'Simple', value: 'SimpleID' }},
+       presentationVariant: [{ sortOrder: [{ by: 'SimpleID', direction: #ASC }] }] }
+
+annotate view ZC_SIMPLE_010 with
+{
+
+    @UI.facet: [ {  id:      'Simple',
+                    purpose:  #STANDARD,
+                    type:     #IDENTIFICATION_REFERENCE,
+                    label:    'Simple',
+                    position: 10 } ]
+
+    @UI.hidden: true
+    SimpleUUID;
+
+    @UI: { lineItem:        [ { position: 10, label: 'Simple ID', cssDefault.width: '300px' },
+                              { type: #FOR_ACTION, dataAction: 'test2', label: 'Test2' }, 
+                              { type: #FOR_ACTION, dataAction: 'test',  label: 'Test1' } ], 
+           identification:  [ { position: 10, label: 'Simple ID' } ] }
+    @Search.defaultSearchElement: true
+    SimpleID;
+
+    @UI: { lineItem:        [ { position: 20, label: 'Data 1', cssDefault.width: '300px' } ],
+           identification:  [ { position: 20, label: 'Data 1', hidden: true /* it works */} ] }
+    @Search.defaultSearchElement: true
+    Data1;
+
+    @UI: { lineItem:        [ { position: 30, label: 'Data 2', cssDefault.width: '300px' } ],
+           identification:  [ { position: 30, label: 'Data 2', hidden: #(Boolean) /* it works */ } ] }
+    @Search.defaultSearchElement: true
+    Data2;
+
+    @UI: { lineItem:        [ { position: 40, label: 'Data 3', cssDefault.width: '300px' } ],
+           identification:  [ { position: 40, label: 'Data 3' } ] }
+    @Search.defaultSearchElement: true
+    Data3;
+
+    @UI: { lineItem:        [ { position: 50, label: 'Customer', cssDefault.width: '300px' } ],
+           identification:  [ { position: 50, label: 'Customer' } ] }
+    @Search.defaultSearchElement: true
+    @UI.hidden: true /* it works */
+    Customer;    
+
+    @UI: { lineItem:        [ { position: 60, label: 'Boolean', cssDefault.width: '100px' } ],
+           identification:  [ { position: 60, label: 'Boolean' } ] }
+    @Search.defaultSearchElement: true
+    Boolean;    
+
+}

@@ -1,0 +1,28 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: { headerInfo: { typeName: 'Simple 012',
+                     typeNamePlural: 'Simple 012',
+                     title: { type: #STANDARD, label: 'Simple 012', value: 'Id' }},
+       presentationVariant: [{ sortOrder: [{ by: 'Id', direction: #ASC }] }] }
+annotate entity ZC_SIMPLE_012 with 
+{
+
+  @UI.facet: [ { id:      'Simple012',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE,
+                label:    'Simple 012',
+                position: 10 } ]
+
+    Uuid;
+
+    @UI: { lineItem:        [ { position: 10, label: 'Id', importance: #HIGH },
+                              { type: #FOR_ACTION, dataAction: 'Test', label: 'Delete All' } ],
+           identification:  [ { position: 10, label: 'Id' } ]  }
+    @Search.defaultSearchElement: true
+    Id;
+
+    @UI: { lineItem:        [ { position: 20, label: 'Data 1', importance: #HIGH } ],
+           identification:  [ { position: 20, label: 'Data 1' } ]  }
+    @Search.defaultSearchElement: true
+    Data1;
+}

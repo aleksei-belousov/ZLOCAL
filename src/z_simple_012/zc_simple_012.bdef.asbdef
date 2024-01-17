@@ -1,0 +1,12 @@
+projection implementation in class zbp_c_simple_012 unique;
+strict ( 1 );
+
+define behavior for ZC_SIMPLE_012 alias Simple
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Test;
+
+}

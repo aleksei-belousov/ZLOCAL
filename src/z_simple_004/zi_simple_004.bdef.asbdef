@@ -1,0 +1,30 @@
+managed implementation in class zbp_i_simple_004 unique;
+strict ( 1 );
+
+define behavior for ZI_SIMPLE_004 alias Simple_004
+persistent table zsimple_004
+with additional save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( numbering : managed, readonly ) Uuid;
+  field ( mandatory ) Id;
+  //field ( readonly ) Data, Data2;
+  //determination calculate_order_id on modify { create; }
+  //internal action create_pr parameter $self;
+  //internal action set_inforecord;
+  //internal action update_inforecord;
+  create;
+  update (features: instance);
+  delete;
+
+  mapping for ZSIMPLE_004 control ZSIMPLE_QAF_004 corresponding
+  {
+    //Uuid = uuid;
+    Id = id;
+    Data = data;
+
+  }
+
+}

@@ -1,0 +1,84 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Zsimple010', 
+    typeNamePlural: 'Zsimple010s', 
+    title: {
+      type: #STANDARD, 
+      label: 'ZSIMPLE 010', 
+      value: 'Simpleuuid'
+    }
+  }
+}
+annotate view ZC_Zsimple010 with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_Zsimple010', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'ZSIMPLE 010', 
+    position: 1 
+  } ]
+  Simpleuuid;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Simpleid'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Simpleid'
+  } ]
+  Simpleid;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Data1'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Data1'
+  } ]
+  Data1;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    label: 'Data2'
+  } ]
+  @UI.lineItem: [ {
+    position: 4 , 
+    label: 'Data2'
+  } ]
+  Data2;
+  
+  @UI.identification: [ {
+    position: 5 , 
+    label: 'Data3'
+  } ]
+  @UI.lineItem: [ {
+    position: 5 , 
+    label: 'Data3'
+  } ]
+  Data3;
+  
+  @UI.identification: [ {
+    position: 6 , 
+    label: 'Customer'
+  } ]
+  @UI.lineItem: [ {
+    position: 6 , 
+    label: 'Customer'
+  } ]
+  Customer;
+  
+  @UI.identification: [ {
+    position: 7 
+  } ]
+  Lastchange;
+}

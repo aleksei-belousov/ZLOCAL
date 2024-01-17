@@ -1,0 +1,25 @@
+projection;
+strict;
+use draft;
+
+define behavior for ZC_Zsimple010_S alias Zsimple010All
+
+{
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use action SelectCustomizingTransptReq;
+
+  use association _Zsimple010 { create; with draft; }
+}
+
+define behavior for ZC_Zsimple010 alias Zsimple010
+
+{
+  use update;
+  use delete;
+
+  use association _Zsimple010All { with draft; }
+}

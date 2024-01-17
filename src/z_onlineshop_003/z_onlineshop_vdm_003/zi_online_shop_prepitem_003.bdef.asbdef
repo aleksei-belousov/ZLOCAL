@@ -1,0 +1,13 @@
+managed implementation in class zbp_i_online_shop_item_003 unique;
+strict ( 1 );
+
+define behavior for zi_online_shop_prepitem_003 alias zi_online_shop_item_003
+persistent table zshop_item_003
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

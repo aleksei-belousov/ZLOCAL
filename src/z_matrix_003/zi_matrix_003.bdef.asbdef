@@ -1,0 +1,104 @@
+managed implementation in class zbp_i_matrix_003 unique;
+strict ( 1 );
+
+define behavior for ZI_MATRIX_003 alias Matrix
+//persistent table zmatrix_003
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  association _Size { create; }
+  association _Item { create; }
+
+  field ( mandatory :create, readonly : update ) MatrixID;
+
+  mapping for zmatrix_003
+  {
+    MatrixID    = matrixid;
+    Model       = model;
+    Color       = color;
+  }
+
+  // Create Items
+  action create_items;
+  // Create Sales Order
+  action create_sales_order;
+  // Add items
+  //determination add_items on save { field MatrixID; }
+  // Function import to set the Employee to active/inactive
+  action ( features : instance ) test1 result [1] $self;
+  //determination of Salary based on Experience and Role
+  //determination test2 on save { field MatrixID, Model, Color; }
+  //validate various fields user is going to enter on the UI
+  //validation test3 on save { field MatrixID; }
+
+}
+
+define behavior for ZI_SIZE_003 alias Size
+//persistent table zsize_003
+with unmanaged save
+lock dependent by _Matrix
+authorization dependent by _Matrix
+//etag master <field_name>
+{
+  update;
+  //delete;
+  field ( readonly ) SizeID;
+  field ( readonly ) MatrixID;
+  association _Matrix;
+  field ( readonly ) Back;
+
+  action create_sizes;
+
+  mapping for zsize_003
+  {
+    SizeID      = sizeid;
+    MatrixID    = matrixid;
+    Back        = back;
+    A           = a;
+    B           = b;
+    C           = c;
+    D           = d;
+    E           = e;
+    F           = f;
+    G           = g;
+    H           = h;
+    I           = i;
+  }
+
+}
+
+define behavior for ZI_ITEM_003 alias Item
+persistent table zitem_003
+//with unmanaged save
+lock dependent by _Matrix
+authorization dependent by _Matrix
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) ItemID;
+  field ( readonly ) MatrixID;
+  association _Matrix;
+//  field ( numbering : managed, readonly ) ItemUUID;
+
+  action create_items;
+
+  mapping for zitem_003
+  {
+    ItemID      = itemid;
+    MatrixID    = matrixid;
+    Model       = model;
+    Color       = color;
+    Cupsize     = cupsize;
+    Backsize    = backsize;
+    Product     = product;
+    Quantity    = quantity;
+  }
+
+}

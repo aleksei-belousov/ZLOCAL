@@ -1,0 +1,14 @@
+managed implementation in class zbp_i_simple_003 unique;
+strict ( 1 );
+
+define behavior for ZI_SIMPLE_003 //alias <alias_name>
+persistent table zsimple_003
+lock master
+authorization master ( instance )
+etag master Data
+{
+  //field ( readonly:update ) Data;
+  create;
+  update;
+  delete;
+}

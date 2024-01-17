@@ -1,0 +1,94 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: { headerInfo: { typeName: 'Simple 008',
+                     typeNamePlural: 'Simple 008',
+                     title: { type: #WITH_INTENT_BASED_NAVIGATION, label: 'Simple 008', value: 'Id' }},
+       presentationVariant: [{ sortOrder: [{ by: 'Id', direction: #ASC }] }] }
+annotate view ZC_SIMPLE_008 with 
+{
+
+    @UI.facet: [
+        {
+            id: 'Simple008', purpose: #STANDARD,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Simple 008', position: 10,
+            isPartOfPreview: true,
+            feature: 'XXX'
+        }
+    ]
+
+    @UI: {
+        lineItem:      [{ position: 20, label: 'UUUID' }],
+        identification:[{ position: 20, label: 'UUID' }]
+    }
+    Uuid;
+
+    @UI: {
+        lineItem:      [{ position: 30, label: 'ID' }],
+        identification:[{ position: 30, label: 'ID' }],
+        connectedFields: [{cssDefault.width: '200px'}]
+    }
+    @Search.defaultSearchElement: true
+    Id;
+
+    @UI: {
+        lineItem:      [{ position: 40, label: 'Data 0' }],
+        identification:[{ position: 40, label: 'Data 0' }]
+    }
+    Data0;
+
+    @UI: {
+        lineItem:      [{ position: 50, label: 'Data 1' }],
+        identification:[{ position: 50, label: 'Data 1' }]
+    }
+    Data1;
+
+    @UI: {
+        lineItem:      [{ position: 60, label: 'Data 2' }],
+        identification:[{ position: 60, label: 'Data 2' }]
+    }
+    Data2;
+
+    @UI: {
+        lineItem:      [{ position: 70, label: 'Data 3' }],
+        identification:[{ position: 70, label: 'Data 3' }]
+    }
+    Data3;
+
+    @UI: {
+        lineItem:      [{ position: 80, label: 'Data 4' }],
+        identification:[{ position: 80, label: 'Data 4' }]
+    }
+    Data4;
+
+    @UI: {
+        lineItem:      [{ position: 90, label: 'Data 5' }],
+        identification:[{ position: 90, label: 'Data 5' }]
+    }
+    Data5;
+
+    @UI: {
+        lineItem:      [{ position: 100, label: 'Data 6' }],
+        identification:[{ position: 100, label: 'Data 6' }]
+    }
+    Data6;
+
+    @UI: {
+        lineItem:      [{ position: 110, label: 'Data 7' }],
+        identification:[{ position: 110, label: 'Data 7' }]
+    }
+    Data7;
+
+    @UI: {
+        lineItem:      [{ position: 120, label: 'Data 8' }],
+        identification:[{ position: 120, label: 'Data 8' }]
+    }
+    Data8;
+
+    @UI: {
+        lineItem:      [{ position: 130, label: 'Data 9' }],
+        identification:[{ position: 130, label: 'Data 9' }]
+    }
+    Data9;
+    
+}

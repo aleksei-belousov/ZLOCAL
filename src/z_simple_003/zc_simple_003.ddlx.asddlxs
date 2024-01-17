@@ -1,0 +1,16 @@
+@Metadata.layer: #CUSTOMER
+@Search.searchable: true
+@UI: { headerInfo: { typeName: 'Simple 003',
+                     typeNamePlural: 'Simple 003s',
+                     title: { type: #STANDARD, label: 'Simple 003', value: 'Data' }},
+       presentationVariant: [{ sortOrder: [{ by: 'Data', direction: #ASC }] }] }
+annotate view ZC_SIMPLE_003 with 
+{
+ 
+  @UI: { lineItem: [{ position: 10, label: 'lineItem-Data', importance: #HIGH }],
+         identification: [{ position: 10, label: 'identification-Data' }]
+       }
+  @Search.defaultSearchElement: true
+  Data;
+
+}

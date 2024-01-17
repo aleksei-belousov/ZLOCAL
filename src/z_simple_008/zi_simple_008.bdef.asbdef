@@ -1,0 +1,60 @@
+managed;
+strict ( 2 );
+with draft;
+define behavior for ZI_SIMPLE_008 alias Simple
+implementation in class zbp_i_simple_008 unique
+persistent table zsimple_008
+draft table zsimple_008d
+lock master total etag LastChangedAt
+
+//with additional save
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) Uuid;
+  validation validateData0 on save { field Data0; create; }
+  // Events:
+  determination calculate_on_modify on modify {  field Data1, Data2; }
+
+  draft action Resume with additional implementation;
+  draft action Edit with additional implementation;
+  draft action Activate with additional implementation;
+  draft action Discard /*with additional implementation*/;
+
+  draft determine action Prepare  {
+    validation validateData0;
+  }
+
+  mapping for ZSIMPLE_008
+  {
+    Uuid                    = uuid;
+    ID                      = id;
+    Data0                   = data0;
+    Data1                   = data1;
+    Data2                   = data2;
+    Data3                   = data3;
+    Data4                   = data4;
+    Data5                   = data5;
+    Data6                   = data6;
+    Data7                   = data7;
+    Data8                   = data8;
+    Data9                   = data9;
+//    CreationDate            = creationdate;
+//    CreationTime            = creationtime;
+    CreatedBy               = created_by;
+    CreatedAt               = created_at;
+    LastChangedAt           = last_changed_at;
+    LastChangedBy           = last_changed_by;
+    LocalLastChangedAt      = local_last_changed_at;
+  }
+  side effects
+  {
+    field Data1 affects field Data3;
+    field Data2 affects field Data3;
+  }
+
+}

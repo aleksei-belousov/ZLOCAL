@@ -1,0 +1,66 @@
+managed with additional save implementation in class ZBP_I_ZSIMPLE010_S unique;
+strict;
+with draft;
+
+define behavior for ZI_Zsimple010_S alias Zsimple010All
+draft table ZSIMPLE_010_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _Zsimple010 { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_Zsimple010 alias Zsimple010
+persistent table ZSIMPLE_010
+draft table ZSIMPLE_010_D
+etag master LocinstLastchange
+lock dependent by _Zsimple010All
+authorization dependent by _Zsimple010All
+
+{
+  field ( readonly )
+   SingletonID,
+   Simpleuuid,
+   Lastchange,
+   LocinstLastchange;
+
+  field ( numbering : managed )
+   Simpleuuid;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZSIMPLE_010
+  {
+    Simpleuuid = SIMPLEUUID;
+    Simpleid = SIMPLEID;
+    Data1 = DATA1;
+    Data2 = DATA2;
+    Data3 = DATA3;
+    Customer = CUSTOMER;
+    Lastchange = LASTCHANGE;
+    LocinstLastchange = LOCINST_LASTCHANGE;
+  }
+
+  association _Zsimple010All { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

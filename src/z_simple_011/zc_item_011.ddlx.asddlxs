@@ -1,0 +1,55 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Item',
+                     typeNamePlural: 'Item',
+                     title: { type: #STANDARD, value: 'ItemID' } } }
+
+annotate entity ZC_ITEM_011 with 
+{
+
+  @UI.facet: [ { id:            'Item',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Item',
+                 position:      10 } ]
+
+    @UI.hidden: true
+    ItemUUID;
+
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH, label: 'Item ID', cssDefault.width: '300px' } ],
+         identification: [ { position: 20, label: 'Item ID' } ] }
+    ItemID;
+
+    @UI.hidden: true
+    SimpleUUID;
+
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH, label: 'Data 4', cssDefault.width: '300px' } ],
+         identification: [ { position: 30, label: 'Data 4' } ] }
+    Data4;
+
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH, label: 'Data 5', cssDefault.width: '300px' } ],
+         identification: [ { position: 40, label: 'Data 5' } ] }
+    Data5;
+
+  @UI: { lineItem:       [ { position: 50, importance: #HIGH, label: 'Data 6', cssDefault.width: '300px' } ],
+         identification: [ { position: 50, label: 'Data 6' } ] }
+    Data6;
+
+    @UI.hidden: true
+    CreatedBy;
+
+    @UI.hidden: true
+    CreatedAt;
+
+    @UI.hidden: true
+    LastChangedBy;
+
+    @UI.hidden: true
+    LastChangedAt;
+
+    @UI.hidden: true
+    LocalLastChangedAt;
+
+    /* Associations */
+    //_Simple;    
+
+}

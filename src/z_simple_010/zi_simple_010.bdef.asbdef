@@ -1,0 +1,39 @@
+managed implementation in class zbp_i_simple_010 unique;
+strict ( 1 );
+
+define behavior for ZI_SIMPLE_010 alias Simple
+persistent table zsimple_010
+with additional save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+    create;
+    update;
+    delete;
+
+    field(numbering : managed, readonly) SimpleUUID;
+	
+    mapping for zsimple_010
+    {
+        SimpleUUID  = simpleuuid;
+        SimpleID    = simpleid;
+        Data1       = data1;
+        Data2       = data2;
+        Data3       = data3;
+        Customer    = customer;
+        Boolean     = boolean;
+    }
+
+    side effects
+    {
+      field Data1 affects field Data3;
+      field Data2 affects field Data3;
+    }
+
+    // Actions:
+    action test;
+    action test2;
+    // Events:
+    determination calc_on_modify on modify { field Data1, Data2; }
+}

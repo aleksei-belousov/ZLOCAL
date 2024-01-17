@@ -1,0 +1,63 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: { headerInfo: { typeName: 'Simple',
+                     typeNamePlural: 'Simple',
+                     title: { type: #STANDARD, label: 'Simple', value: 'HeaderID' } },
+    presentationVariant: [{ sortOrder: [{ by: 'HeaderID', direction: #ASC }] }] }
+annotate view ZC_SIMPLE_009 with 
+{
+
+  @UI.facet: [
+
+      // Simple (Header) 
+      {
+          id:               'Simple',
+          purpose:          #STANDARD,
+          type:             #IDENTIFICATION_REFERENCE,
+          label:            'Simple',
+          position:         10
+      },
+      // Item (Table)
+      {
+          id:               'Item',
+          purpose:          #STANDARD,
+          type:             #LINEITEM_REFERENCE,
+          label:            'Item',
+          position:         20,
+          targetQualifier:  'Item',
+          targetElement:    '_Item'
+      }
+  ]
+  HeaderUUID;
+    
+  @UI: {  lineItem:       [ { position: 20, label: 'Simple ID', cssDefault.width: '300px' } ],
+          identification: [ { position: 20, label: 'Simple ID', cssDefault.width: '300px' },
+                            { type: #FOR_ACTION, dataAction: 'test1',  label: 'Test 1' },
+                            { type: #FOR_ACTION, dataAction: 'test2',  label: 'Test 2' },
+                            { type: #FOR_ACTION, dataAction: 'create_items',  label: 'Create Items' },
+                            { type: #FOR_ACTION, dataAction: 'calc_on_action',  label: 'Calc' } ],
+          selectionField: [ { position: 20 } ] }
+  @Search.defaultSearchElement: true
+  HeaderID;
+    
+  @UI: {  lineItem:       [ { position: 30, label: 'Data 1', cssDefault.width: '300px', importance: #HIGH } ],
+          identification: [ { position: 30, label: 'Data 1', cssDefault.width: '300px' } ] }
+  @Search.defaultSearchElement: true
+  Data1;
+    
+  @UI: {  lineItem:       [ { position: 40, label: 'Data 2', cssDefault.width: '300px', importance: #HIGH } ],
+          identification: [ { position: 40, label: 'Data 2', cssDefault.width: '300px' } ] }
+  @Search.defaultSearchElement: true
+  Data2;
+    
+  @UI: {  lineItem:       [ { position: 50, label: 'Data 3', cssDefault.width: '300px', importance: #HIGH } ],
+          identification: [ { position: 50, label: 'Data 3', cssDefault.width: '300px', importance: #HIGH } ] }
+  @Search.defaultSearchElement: true
+  Data3;
+    
+  @UI: {  lineItem:       [ { position: 60, label: 'Customer', cssDefault.width: '300px', importance: #HIGH } ],
+          identification: [ { position: 60, label: 'Customer', cssDefault.width: '300px' } ] }
+  @Search.defaultSearchElement: true
+  Customer;
+
+}

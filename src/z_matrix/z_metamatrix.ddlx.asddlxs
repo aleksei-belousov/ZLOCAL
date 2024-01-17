@@ -1,0 +1,46 @@
+@Metadata.layer: #CUSTOMER
+@Search.searchable: true
+@UI: { headerInfo: { typeName: 'Online Shop',
+                     typeNamePlural: 'Online Shop',
+                     title: { type: #STANDARD, label: 'Online Shop', value: 'order_id' }},
+       presentationVariant: [{ sortOrder: [{ by: 'Creationdate',
+                                             direction: #DESC }] }] }
+annotate view ZMATRIX_VIEW with
+{
+
+  @UI.facet: [{ id:       'Orders',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE,
+                label:    'Order',
+                position: 10 }]
+//  Order_Uuid;
+//  @UI: { lineItem: [{ position: 10,label: 'Order ID', importance: #HIGH }],
+//         identification: [{ position: 10, label: 'Order ID' }]
+//       }
+//  @Search.defaultSearchElement: true
+//  Order_Id;
+  @UI: { lineItem: [{ position: 20,label: 'Product ID', importance: #HIGH }],
+         identification: [{ position: 20, label: 'Product ID' }]
+       }
+  @Search.defaultSearchElement: true
+  Ordereditem;
+  @UI: { lineItem:[{ position: 30,label: 'Model-Nr', importance: #HIGH }],
+         identification: [{ position: 30, label: 'Model-Nr' }]
+       }
+   Modelnr;
+  @UI: { lineItem:       [{ position: 40, label: 'Color-No', importance: #HIGH }],
+         identification: [{ position: 40, label: 'Color-No' }]
+       }     
+   Colornr;
+//  @UI: { lineItem:       [{ position: 70,label: 'Creation date', importance: #HIGH }],
+//         identification: [{ position: 70, label: 'Creation date' }]
+//       }     
+//  Creationdate;
+//  @UI: { identification: [{ position: 80, label: 'Sales Order' }] }
+//  SalesOrder;
+//  @UI: { lineItem:       [{ position: 90,label: 'Package ID', importance: #HIGH }],
+//         identification: [{ position: 90, label: 'Package ID' }]
+//       }
+  //@Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_ONLINE_SHOP_PREPITEM_VH_XXX', element: 'PackageId' }}]
+//  PackageId;
+}

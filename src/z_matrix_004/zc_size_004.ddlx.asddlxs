@@ -1,0 +1,71 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Backsize / Capsize',
+        typeNamePlural: 'Sizes',
+        title: {
+            type: #STANDARD,
+            value: 'Back'
+        }
+    }
+}
+annotate view ZC_SIZE_004 with 
+{
+    @UI.facet: [
+        {
+            id:            'Size',
+            purpose:       #STANDARD,
+            type:          #IDENTIFICATION_REFERENCE,
+            label:         'Size',
+            position:      10
+        }
+    ]
+
+    //@UI: {  lineItem:       [ { position: 10, label: 'Matrix UUID' } ],
+    //        identification: [ { position: 10, label: 'Matrix UUID' } ] }
+    //MatrixUUID;
+
+    //@UI: {  lineItem:       [ { position: 10, label: 'Size ID' } ],
+    //        identification: [ { position: 10, label: 'Size ID' } ] }
+    //SizeID;
+
+    @UI: {  lineItem:       [ { position: 10, label: 'Backsize' } ],
+            identification: [ { position: 10, label: 'Backsize' } ] }
+    Back;
+
+    @UI: {  lineItem:       [ { position: 20, label: 'A' } ],
+            identification: [ { position: 20, label: 'A' } ] }
+    A;
+
+    @UI: {  lineItem:       [ { position: 30, label: 'B' } ],
+            identification: [ { position: 30, label: 'B' } ] }
+    B;
+
+    @UI: {  lineItem:       [ { position: 40, label: 'C' } ],
+            identification: [ { position: 40, label: 'C' } ] }
+    C;
+
+    @UI: {  lineItem:       [ { position: 50, label: 'D' } ],
+            identification: [ { position: 50, label: 'D' } ] }
+    D;
+
+    @UI: {  lineItem:       [ { position: 60, label: 'E' } ],
+            identification: [ { position: 60, label: 'E' } ] }
+    E;
+
+    @UI: {  lineItem:       [ { position: 70, label: 'F' } ],
+            identification: [ { position: 70, label: 'F' } ] }
+    F;
+
+    @UI: {  lineItem:       [ { position: 80, label: 'G' } ],
+            identification: [ { position: 80, label: 'G' } ] }
+    G;
+
+    @UI: {  lineItem:       [ { position: 90, label: 'H' } ],
+            identification: [ { position: 90, label: 'H' } ] }
+    H;
+
+    @UI: {  lineItem:       [ { position: 100, label: 'I' } ],
+            identification: [ { position: 100, label: 'I' } ] }
+    I;
+}

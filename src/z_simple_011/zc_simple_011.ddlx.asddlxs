@@ -1,0 +1,51 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Simple', 
+                     typeNamePlural: 'Simple', 
+                     title: { type: #STANDARD, value: 'SimpleID' } },
+       presentationVariant: [{ sortOrder: [{ by: 'SimpleID', direction: #DESC }] }] }
+       
+annotate entity ZC_SIMPLE_011 with 
+{
+
+  @UI.facet: [{ id:            'Simple',
+                purpose:       #STANDARD,
+                type:          #IDENTIFICATION_REFERENCE,
+                label:         'Simple',
+                position:      10 },
+              { id:            'Item',
+                purpose:       #STANDARD,
+                type:          #LINEITEM_REFERENCE,
+                label:         'Item',
+                position:      20,
+                targetElement: '_Item'}]
+
+    @UI.hidden: true
+    SimpleUUID;
+
+    @UI: { lineItem:       [ { position: 10, label: 'Simple ID', importance: #HIGH, cssDefault.width: '300px' },
+                             { type: #FOR_ACTION, dataAction: 'create_item', label: 'Create Item' }/*, 
+                             { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Travel' }, 
+                             { type: #FOR_ACTION, dataAction: 'deductDiscount', label: 'Deduct Discount', invocationGrouping: #CHANGE_SET }*/ ],
+           identification: [ { position: 10, label: 'Simple ID', cssDefault.width: '300px' },
+                             { type: #FOR_ACTION, dataAction: 'create_item', label: 'Create Item' },
+                             { type: #FOR_ACTION, dataAction: 'update_items', label: 'Update Items' } ],
+           selectionField: [ { position: 10 } ] }  
+    SimpleID;
+
+    @UI: { lineItem:       [ { position: 20, label: 'Data 1', importance: #HIGH, cssDefault.width: '300px' } ] ,
+           identification: [ { position: 20, label: 'Data 1' } ],
+           selectionField: [ { position: 20 } ] } 
+    Data1;
+
+    @UI: { lineItem:       [ { position: 30, label: 'Data 2', importance: #HIGH, cssDefault.width: '300px' } ] ,
+           identification: [ { position: 30, label: 'Data 2' } ],
+           selectionField: [ { position: 30 } ] }  
+    Data2;
+
+    @UI: { lineItem:       [ { position: 40, label: 'Data 3', importance: #HIGH, cssDefault.width: '300px' } ] ,
+           identification: [ { position: 40, label: 'Data 3' } ],
+           selectionField: [ { position: 40 } ] }  
+    Data3;    
+
+}

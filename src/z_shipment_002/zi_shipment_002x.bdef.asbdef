@@ -1,0 +1,25 @@
+managed implementation in class zbp_i_shipment_002x unique;
+strict ( 2 );
+//with draft;
+define behavior for ZI_SHIPMENT_002X alias ShipmentX
+persistent table zshipment002
+//draft table zshipment002d
+lock master
+//total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+
+  create;
+  update;
+  delete;
+
+//  draft determine action Prepare;
+//  draft action Resume with additional implementation;
+//  draft action Edit with additional implementation;
+//  draft action Activate with additional implementation optimized;
+//  draft action Discard /*with additional implementation*/;
+
+  field ( readonly ) ShipmentID;
+
+}

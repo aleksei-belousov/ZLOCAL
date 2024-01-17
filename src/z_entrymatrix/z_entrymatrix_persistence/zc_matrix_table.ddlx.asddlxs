@@ -1,0 +1,56 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Matrix Table',
+                typeNamePlural: 'Matrix Items',
+                title: { type: #STANDARD, value: 'Matrix_Id' } } }
+annotate view ZC_MATRIX_TABLE
+    with 
+{
+      @UI.facet: [  { id:        'MatrixTable',
+                  purpose:       #STANDARD,
+                  type:          #IDENTIFICATION_REFERENCE,
+                  label:         'MatrixTable',
+                  position:      10 } ]
+
+
+//  @UI: {  lineItem:       [ { position: 20, label: 'Order Uuid' } ],
+//          identification: [ { position: 20, label: 'Order Uuid' } ] }
+//  OrderUuid;
+
+  @UI: {  lineItem:       [ { position: 20, label: 'Order ID', hidden: true } ],
+          identification: [ { position: 20, label: 'Order ID', hidden: true } ] }
+  Order_Id;
+
+//  @UI: {  lineItem:       [ { position: 30, label: 'Matrix UUID' } ],
+//          identification: [ { position: 30, label: 'Matrix UUID' } ] }
+//  MatrixUuid;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'Matrix ID' } ],
+          identification: [ { position: 40, label: 'Matrix ID' }, { type: #FOR_ACTION, dataAction: 'create_items', label: 'Create Items' } ] }
+  Matrix_Id;
+
+  @UI: {  lineItem:       [ { position: 50, label: 'Model' } ],
+          identification: [ { position: 50, label: 'Model' } ] }
+  ModelNo;
+
+  @UI: {  lineItem:       [ { position: 60, label: 'Color' } ],
+          identification: [ { position: 60, label: 'Color' } ] }
+  ColorNo;
+
+  @UI: {  lineItem:       [ { position: 70, label: 'Cupsize' } ],
+          identification: [ { position: 70, label: 'Cupsize' } ] }
+  Cupsize;
+
+  @UI: {  lineItem:       [ { position: 80, label: 'Backsize' } ],
+          identification: [ { position: 80, label: 'Backsize' } ] }
+  Backsize;
+
+  @UI: {  lineItem:       [ { position: 90, label: 'Product' } ],
+          identification: [ { position: 90, label: 'Product' } ] }
+  Product;
+
+  @UI: {  lineItem:       [ { position: 100, label: 'Quantity' } ],
+          identification: [ { position: 100, label: 'Quantity' } ] }
+  Quantity;
+    
+}
